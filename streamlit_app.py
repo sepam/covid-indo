@@ -8,7 +8,7 @@ from plots.daily_cases import plot_daily_cases_id, plot_daily_cases_jkt
 
 
 # logic to run up front
-@st.cache
+@st.cache(ttl=60*60)
 def fetch_data():
     data = fetch(URL, SHEET)
     return data
