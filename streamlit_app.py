@@ -7,6 +7,11 @@ from data.get_data import fetch, URL, SHEET
 from plots.daily_cases import plot_daily_cases_id, plot_daily_cases_jkt
 
 
+st.set_page_config(
+    page_title="COVID-19 Indonesia",
+    # layout="wide"
+)
+
 # logic to run up front
 @st.cache(ttl=60*60)
 def fetch_data():
