@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import pandas as pd
 import streamlit as st
 
@@ -23,11 +25,13 @@ total_cases_jkt = df['Positif (Jakarta)'].iloc[-1].astype(int)
 total_cases_jkt_yd = df['Positif (Jakarta)'].iloc[-2].astype(int)
 diff_jkt = total_cases_jkt - total_cases_jkt_yd
 
+current_date = datetime.now().date().__str__()
 last_date = pd.to_datetime(df['Tanggal']).dt.date.iloc[-1]
 
 # Title of the app
 st.title("COVID-19 in Indonesia")
 st.text("Data Source: https://corona.jakarta.go.id/")
+st.text(f"Current date: {current_date}")
 st.text(f"Last updated: {last_date}")
 
 # Indonesia
