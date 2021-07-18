@@ -1,20 +1,18 @@
 import pandas as pd
 import streamlit as st
-import altair as alt
 
-
-from get_data import get_data, URL, SHEET
+from data.get_data import fetch, URL, SHEET
 from plots.daily_cases import plot_daily_cases_id, plot_daily_cases_jkt
 
 
 # logic to run up front
 @st.cache
-def fetching_data():
-    data = get_data(URL, SHEET)
+def fetch_data():
+    data = fetch(URL, SHEET)
     return data
 
 
-df = fetching_data()
+df = fetch_data()
 
 # calculate summary statistics
 total_cases_id = df['Positif (Indonesia)'].iloc[-1].astype(int)
