@@ -6,48 +6,14 @@ import altair as alt
 from get_data import get_data, URL, SHEET
 from plots.daily_cases import plot_daily_cases_id, plot_daily_cases_jkt
 
-URL = 'https://tiny.cc/Datacovidjakarta'
-SHEET = 'Data Indonesia dan Jakarta'
-
-#
-def get_data(url, sheet):
-    df = pd.read_excel(url, sheet_name=sheet)
-    # df = pd.read_csv('sample_data.csv')
-    return df
-
-
-def plot_daily_cases_id(df):
-    chart = alt.Chart(df, title='Daily New Cases Indonesia').mark_bar().encode(
-        x=alt.X('Tanggal', title='Date'),
-        y=alt.Y('Positif Harian (Indonesia)', title='Daily Positive Cases'),
-        tooltip=[
-            alt.Tooltip('Tanggal', title='Date'),
-            alt.Tooltip('Positif Harian (Indonesia)', format=',',
-                        title='Daily Cases')
-        ]
-    )
-    return chart
-
-
-def plot_daily_cases_jkt(df):
-    chart = alt.Chart(df, title='Daily New Cases Jakarta').mark_bar().encode(
-        x=alt.X('Tanggal', title='Date'),
-        y=alt.Y('Positif Harian (Jakarta)', title='Daily Positive Cases'),
-        tooltip=[
-            alt.Tooltip('Tanggal', title='Date'),
-            alt.Tooltip('Positif Harian (Jakarta)', format=',',
-                        title='Daily Cases')
-        ]
-    )
-    return chart
-
 
 # logic to run up front
 @st.cache
 def fetching_data():
     data = get_data(URL, SHEET)
     return data
-#
+
+
 df = fetching_data()
 
 # calculate summary statistics
@@ -96,5 +62,3 @@ st.markdown(
 
 chart2 = plot_daily_cases_jkt(df)
 st.altair_chart(chart2.properties(width=800))
-
-
