@@ -36,7 +36,8 @@ last_date = pd.to_datetime(df['Tanggal']).dt.date.iloc[-1]
 
 # Title of the app
 st.title("COVID-19 in Indonesia")
-st.text("Data Source: https://corona.jakarta.go.id/")
+st.text("Data Source:")
+st.markdown("[https://corona.jakarta.go.id/](https://corona.jakarta.go.id/)")
 st.text(f"Current date: {current_date}")
 st.text(f"Last updated: {last_date}")
 
