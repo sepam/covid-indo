@@ -35,7 +35,7 @@ current_date = datetime.now().date().__str__()
 last_date = pd.to_datetime(df['Tanggal']).dt.date.iloc[-1]
 
 # Top layout
-st.title("COVID-19 in Indonesia")
+st.title("COVID-19 in Indonesia 2021")
 st.text("Data Source:")
 st.markdown("[https://corona.jakarta.go.id/](https://corona.jakarta.go.id/)")
 st.text(f"Current date: {current_date}")
@@ -55,7 +55,6 @@ st.markdown(f'## **Total Positive Cases**: {total_cases_id:,} {incr_id_text}', u
 
 chart_id = daily_cases(df, 'id')
 st.altair_chart(chart_id.properties(width=800))
-
 
 # Jakarta statistics
 st.title('Jakarta')
