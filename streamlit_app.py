@@ -7,12 +7,13 @@ from data.get_data import fetch, URL, SHEET
 from plots.daily_cases import daily_cases
 
 
+# Specify default page config
 st.set_page_config(
     page_title="COVID-19 Indonesia",
 )
 
 
-# logic to run up front
+# Fetch data
 @st.cache(ttl=60*60)
 def fetch_data():
     data = fetch(URL, SHEET)
@@ -21,7 +22,7 @@ def fetch_data():
 
 df = fetch_data()
 
-# calculate summary statistics
+# Calculate summary statistics
 total_cases_id = df['Positif (Indonesia)'].iloc[-1].astype(int)
 total_cases_id_yd = df['Positif (Indonesia)'].iloc[-2].astype(int)
 incr_id = total_cases_id - total_cases_id_yd
@@ -33,7 +34,7 @@ incr_jkt = total_cases_jkt - total_cases_jkt_yd
 current_date = datetime.now().date().__str__()
 last_date = pd.to_datetime(df['Tanggal']).dt.date.iloc[-1]
 
-# Title of the app
+# Top layout
 st.title("COVID-19 in Indonesia")
 st.text("Data Source:")
 st.markdown("[https://corona.jakarta.go.id/](https://corona.jakarta.go.id/)")
@@ -45,7 +46,7 @@ if data_button:
     st.dataframe(df)
 
 
-# Indonesia
+# Indonesia statistics
 st.title('Indonesia')
 st.markdown('---')
 
@@ -56,7 +57,7 @@ chart_id = daily_cases(df, 'id')
 st.altair_chart(chart_id.properties(width=800))
 
 
-# Jakarta
+# Jakarta statistics
 st.title('Jakarta')
 st.markdown('---')
 
