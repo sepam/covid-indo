@@ -44,29 +44,24 @@ data_button = st.checkbox('Show data')
 if data_button:
     st.dataframe(df)
 
+
 # Indonesia
 st.title('Indonesia')
 st.markdown('---')
 
 incr_id_text = f'<span style="color:Red; font-size: 20px;">(+{incr_id:,})</span>'
+st.markdown(f'## **Total Positive Cases**: {total_cases_id:,} {incr_id_text}', unsafe_allow_html=True)
 
-st.markdown(f'## **Total Positive Cases**: {total_cases_id:,} {incr_id_text}',
-            unsafe_allow_html=True)
+chart_id = daily_cases(df, 'id')
+st.altair_chart(chart_id.properties(width=800))
 
-# chart1 = plot_daily_cases_id(df)
-chart1 = daily_cases(df, 'id')
-st.altair_chart(chart1.properties(width=800))
 
 # Jakarta
 st.title('Jakarta')
 st.markdown('---')
 
 incr_jkt_text = f'<span style="color:Red; font-size: 20px;">(+{incr_jkt:,})</span>'
+st.markdown(f'## **Total Positive Cases**: {total_cases_jkt:,} {incr_jkt_text}', unsafe_allow_html=True)
 
-st.markdown(
-    f'## **Total Positive Cases**: {total_cases_jkt:,} {incr_jkt_text}',
-    unsafe_allow_html=True)
-
-# chart2 = plot_daily_cases_jkt(df)
-chart2 = daily_cases(df, 'jkt')
-st.altair_chart(chart2.properties(width=800))
+chart_jkt = daily_cases(df, 'jkt')
+st.altair_chart(chart_jkt.properties(width=800))
