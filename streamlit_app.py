@@ -4,12 +4,11 @@ import pandas as pd
 import streamlit as st
 
 from data.get_data import fetch, URL, SHEET
-from plots.daily_cases import plot_daily_cases_id, plot_daily_cases_jkt
+from plots.daily_cases import daily_cases
 
 
 st.set_page_config(
     page_title="COVID-19 Indonesia",
-    # layout="wide"
 )
 
 
@@ -54,7 +53,8 @@ incr_id_text = f'<span style="color:Red; font-size: 20px;">(+{incr_id:,})</span>
 st.markdown(f'## **Total Positive Cases**: {total_cases_id:,} {incr_id_text}',
             unsafe_allow_html=True)
 
-chart1 = plot_daily_cases_id(df)
+# chart1 = plot_daily_cases_id(df)
+chart1 = daily_cases(df, 'id')
 st.altair_chart(chart1.properties(width=800))
 
 # Jakarta
@@ -67,5 +67,6 @@ st.markdown(
     f'## **Total Positive Cases**: {total_cases_jkt:,} {incr_jkt_text}',
     unsafe_allow_html=True)
 
-chart2 = plot_daily_cases_jkt(df)
+# chart2 = plot_daily_cases_jkt(df)
+chart2 = daily_cases(df, 'jkt')
 st.altair_chart(chart2.properties(width=800))
