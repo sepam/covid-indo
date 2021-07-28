@@ -9,7 +9,7 @@ from plots.daily_cases import daily_cases
 
 # Specify default page config
 st.set_page_config(
-    page_title="COVID-19 Indonesia",
+    page_title="COVID-19 Jakarta",
 )
 
 
@@ -35,7 +35,7 @@ current_date = datetime.now().date().__str__()
 last_date = pd.to_datetime(df['Tanggal']).dt.date.iloc[-1]
 
 # Top layout
-st.title("COVID-19 in Indonesia")
+st.title("COVID-19 in Jakarta")
 st.text("Data Source:")
 st.markdown("[https://corona.jakarta.go.id/](https://corona.jakarta.go.id/)")
 st.text(f"Current date: {current_date}")
@@ -46,19 +46,19 @@ if data_button:
     st.dataframe(df)
 
 
-# Indonesia statistics
-st.title('Indonesia')
-st.markdown('---')
-
-incr_id_text = f'<span style="color:Red; font-size: 20px;">(+{incr_id:,})</span>'
-st.markdown(f'## **Total Positive Cases**: {total_cases_id:,} {incr_id_text}', unsafe_allow_html=True)
-
-chart_id = daily_cases(df, 'id')
-st.altair_chart(chart_id.properties(width=800))
+# # Indonesia statistics
+# st.title('Indonesia')
+# st.markdown('---')
+#
+# incr_id_text = f'<span style="color:Red; font-size: 20px;">(+{incr_id:,})</span>'
+# st.markdown(f'## **Total Positive Cases**: {total_cases_id:,} {incr_id_text}', unsafe_allow_html=True)
+#
+# chart_id = daily_cases(df, 'id')
+# st.altair_chart(chart_id.properties(width=800))
 
 # Jakarta statistics
-st.title('Jakarta')
-st.markdown('---')
+# st.title('Jakarta')
+# st.markdown('---')
 
 incr_jkt_text = f'<span style="color:Red; font-size: 20px;">(+{incr_jkt:,})</span>'
 st.markdown(f'## **Total Positive Cases**: {total_cases_jkt:,} {incr_jkt_text}', unsafe_allow_html=True)
