@@ -11,12 +11,16 @@ def daily_cases(df, region):
     else:
         raise ValueError("Specify region argument as either 'id' or 'jkt'")
 
-    chart = alt.Chart(df, title=title).mark_bar().encode(
+    chart = alt.Chart(df, title=title).mark_area(
+        color="lightblue",
+        line=True,
+        interpolate='step-after'
+    ).encode(
         x=alt.X('Tanggal', title='Date'),
         y=alt.Y(region_col, title='Daily Positive Cases'),
         tooltip=[
             alt.Tooltip('Tanggal', title='Date'),
             alt.Tooltip(region_col, format=',', title='Daily Cases')
-        ]
+        ],
     )
     return chart
