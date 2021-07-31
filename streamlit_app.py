@@ -46,19 +46,19 @@ if data_button:
     st.dataframe(df)
 
 
-# # Indonesia statistics
-# st.title('Indonesia')
-# st.markdown('---')
-#
-# incr_id_text = f'<span style="color:Red; font-size: 20px;">(+{incr_id:,})</span>'
-# st.markdown(f'## **Total Positive Cases**: {total_cases_id:,} {incr_id_text}', unsafe_allow_html=True)
-#
-# chart_id = daily_cases(df, 'id')
-# st.altair_chart(chart_id.properties(width=800))
+# Indonesia statistics
+st.title('Indonesia')
+st.markdown('---')
+
+incr_id_text = f'<span style="color:Red; font-size: 20px;">(+{incr_id:,})</span>'
+st.markdown(f'## **Total Positive Cases**: {total_cases_id:,} {incr_id_text}', unsafe_allow_html=True)
+
+chart_id = daily_cases(df, 'id')
+st.altair_chart(chart_id.properties(width=800))
 
 # Jakarta statistics
-# st.title('Jakarta')
-# st.markdown('---')
+st.title('Jakarta')
+st.markdown('---')
 
 incr_jkt_text = f'<span style="color:Red; font-size: 20px;">(+{incr_jkt:,})</span>'
 st.markdown(f'## **Total Positive Cases**: {total_cases_jkt:,} {incr_jkt_text}', unsafe_allow_html=True)
