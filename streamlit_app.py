@@ -42,10 +42,9 @@ st.markdown("[https://corona.jakarta.go.id/](https://corona.jakarta.go.id/)")
 st.text(f"Current date: {current_date}")
 st.text(f"Last updated: {last_date}")
 
-data_button = st.checkbox('Show data')
-if data_button:
-    st.dataframe(df)
-
+# data_button = st.checkbox('Show data')
+# if data_button:
+#     st.dataframe(df)
 
 # Indonesia statistics
 st.title('Indonesia')
