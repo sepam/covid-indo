@@ -14,13 +14,14 @@ st.set_page_config(
 
 
 # Fetch data
-@st.cache(ttl=60*60)
+@st.cache(ttl=60*60, show_spinner=False)
 def fetch_data():
     data = fetch(URL, SHEET)
     return data
 
 
-df = fetch_data()
+with st.spinner(text="Fetching data"):
+    df = fetch_data()
 
 # Calculate summary statistics
 total_cases_id = df['Positif (Indonesia)'].iloc[-1].astype(int)
