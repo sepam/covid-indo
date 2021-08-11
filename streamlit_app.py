@@ -20,7 +20,7 @@ def fetch_data():
     return data
 
 
-with st.spinner(text="Fetching data"):
+with st.spinner(text="Fetching data ..."):
     df = fetch_data()
 
 # Calculate summary statistics
