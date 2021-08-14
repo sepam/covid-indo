@@ -18,10 +18,6 @@ def daily_cases(df, region):
     ).encode(
         x=alt.X('Tanggal', title='Date'),
         y=alt.Y(region_col, title='Daily Positive Cases'),
-        tooltip=[
-            alt.Tooltip('Tanggal', title='Date'),
-            alt.Tooltip(region_col, format=',', title='Daily Cases')
-        ],
     )
 
     # Create a selection that chooses the nearest point & selects based on x-value
