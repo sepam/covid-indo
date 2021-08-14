@@ -4,10 +4,10 @@ import altair as alt
 def daily_cases(df, region):
     if region == "id":
         region_col = 'Positif Harian (Indonesia)'
-        title = 'Daily New Cases Indonesia'
+        title = 'Daily Cases Indonesia'
     elif region == "jkt":
         region_col = 'Positif Harian (Jakarta)'
-        title = 'Daily New Cases Jakarta'
+        title = 'Daily Cases Jakarta'
     else:
         raise ValueError("Specify region argument as either 'id' or 'jkt'")
 
