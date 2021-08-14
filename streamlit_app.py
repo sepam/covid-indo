@@ -32,7 +32,7 @@ st.text(f"Last updated: {last_date}")
 st.markdown('---')
 
 # Column layout
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 
 # Indonesia chart
 col1.title('Indonesia')
