@@ -53,8 +53,6 @@ def daily_cases(df, region):
     # Put the layers into a single chart and bind the data
     layered_chart = alt.layer(
         chart, selectors, points, rules, text
-    ).properties(
-        width=600, height=300
     )
 
     return layered_chart
