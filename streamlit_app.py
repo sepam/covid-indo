@@ -37,9 +37,9 @@ col1, col2 = st.columns(2)
 # Indonesia chart
 col1.title('Indonesia')
 chart_id = daily_cases(df, 'id')
-col1.altair_chart(chart_id.properties(width=600))
+col1.altair_chart(chart_id)
 
 # Jakarta chart
 col2.title('Jakarta')
 chart_jkt = daily_cases(df, 'jkt')
-col2.altair_chart(chart_jkt.properties(width=600))
+col2.altair_chart(chart_jkt)
