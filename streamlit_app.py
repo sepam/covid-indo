@@ -31,13 +31,12 @@ st.title("COVID-19 in Indonesia")
 st.text(f"Last updated: {last_date}")
 st.markdown('---')
 
-# Column layout
-col1, col2 = st.columns(2)
+# Jakarta chart
+st.markdown('**Jakarta**')
+chart_jkt = daily_cases(df, 'jkt')
+st.altair_chart(chart_jkt)
 
 # Indonesia chart
+st.markdown('**Indonesia**')
 chart_id = daily_cases(df, 'id')
-col1.altair_chart(chart_id)
-
-# Jakarta chart
-chart_jkt = daily_cases(df, 'jkt')
-col2.altair_chart(chart_jkt)
+st.altair_chart(chart_id)

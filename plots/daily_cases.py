@@ -4,14 +4,12 @@ import altair as alt
 def daily_cases(df, region):
     if region == "id":
         region_col = 'Positif Harian (Indonesia)'
-        title = 'Daily Cases Indonesia'
     elif region == "jkt":
         region_col = 'Positif Harian (Jakarta)'
-        title = 'Daily Cases Jakarta'
     else:
         raise ValueError("Specify region argument as either 'id' or 'jkt'")
 
-    chart = alt.Chart(df, title=title).mark_area(
+    chart = alt.Chart(df).mark_area(
         color="lightblue",
         line=True,
         interpolate='step-after'
@@ -53,6 +51,9 @@ def daily_cases(df, region):
     # Put the layers into a single chart and bind the data
     layered_chart = alt.layer(
         chart, selectors, points, rules, text
+    ).properties(
+        width=300,
+        height=300
     )
 
     return layered_chart
