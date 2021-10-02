@@ -10,7 +10,6 @@ from plots.daily_cases import daily_cases
 # Specify default page config
 st.set_page_config(
     page_title="COVID-19 Indonesia",
-    layout='wide'
 )
 
 
