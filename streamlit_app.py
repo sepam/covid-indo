@@ -1,5 +1,4 @@
-from datetime import datetime
-
+""" Defines the streamlit app """
 import pandas as pd
 import streamlit as st
 
@@ -12,12 +11,12 @@ st.set_page_config(
     page_title="COVID-19 Indonesia",
 )
 
-
 # Fetch data
 @st.cache(ttl=60*60, show_spinner=False)
 def fetch_data():
-    data = fetch(URL, SHEET)
-    return data
+    """Helper function to fetch data and cache it."""
+    data_sheet = fetch(URL, SHEET)
+    return data_sheet
 
 
 with st.spinner(text="Fetching data ..."):
